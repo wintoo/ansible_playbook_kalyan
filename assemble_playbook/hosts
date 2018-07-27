@@ -1,0 +1,13 @@
+[control]
+ansible
+
+[ubuntu]
+anode[1:2]
+
+[centos]
+anode3
+
+
+[linux:children]
+centos
+ubuntu

@@ -1,0 +1,9 @@
+---
+# Yaml file
+# Name of this file is play1_task3.yml, This is treated as task and will be include under tasks in include_import_playbook  
+
+  - name: Play 1 - Task 3
+    debug:
+      msg: Play 1 - Task 3
+
+...

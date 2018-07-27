@@ -1,0 +1,25 @@
+---
+
+- 
+
+  hosts: all
+
+
+  tasks:
+    - name:
+      template:
+        src: templates/dump_variables
+        dest: /tmp/ansible_variables
+
+    - name:
+      fetch:
+        src: /tmp/ansible_variables
+        dest: "capture_variables/{{ ansible_hostname }}"
+        flat: yes
+ 
+    - name:
+      file:
+        name: /tmp/ansible_variables
+        state: absent    
+
+...

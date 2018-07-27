@@ -1,0 +1,5 @@
+## Custom for centos1
+Host anode3
+  User root
+  Port 22
+

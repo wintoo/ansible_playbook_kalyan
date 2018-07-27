@@ -1,0 +1,20 @@
+---
+# This is a play2_playbook, which will be included into include_import_playbook as import_playbook.
+
+
+-
+  
+  hosts: linux
+
+
+  tasks: 
+    - name: Play 2 - Task 1
+      debug: 
+        msg: Play 2 - Task 1
+
+    - include_tasks: play2_task2.yml
+   
+
+
+
+...

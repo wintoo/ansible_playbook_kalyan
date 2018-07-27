@@ -1,0 +1,43 @@
+---
+# YAML documents begin with the document separator ---
+ 
+# The minus in YAML this indicates a list item.  The playbook contains a list
+# of plays, with each play being a dictionary
+-
+ 
+  # Target: where our play will run and options it will run with
+  hosts: linux
+ 
+  # Task: the list of tasks that will be executed within the playbook
+  tasks:
+    - name: Creating user
+      user:
+        name: "{{ item.key }}"
+        comment: "{{ item.value.full_name }}"
+        state: absent
+      with_dict: 
+        james: 
+          full_name: james sandiri
+
+    - name: Create sequence directories
+      file:
+        dest: "/home/james/sequence_{{ item }}"
+        state: absent
+      with_sequence: start=0 end=100 stride=10
+
+
+    - name: Create hex sequence directories
+      file:
+        dest: "{{ item }}"
+        state: absent
+      with_sequence: start=0 end=16 stride=1 format=/home/james/hex_sequence_%x
+
+    - name: Create hex sequence directories
+      file:
+        dest: "{{ item }}"
+        state: absent
+      with_sequence: count=5 format=/home/james/count_sequence_%x
+
+
+# Three dots indicate the end of a YAML document
+...

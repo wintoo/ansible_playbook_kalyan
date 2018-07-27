@@ -1,0 +1,26 @@
+[control]
+ansible ansible_connection=local
+
+
+
+[ubuntu]
+anode[1:2] 
+# anode2 ansible_become=true ansible_become_pass=password
+
+[ubuntu:vars]
+ansible_become=true
+ansible_become_pass=password
+
+
+
+[centos]
+anode3
+
+[centos:vars]
+ansible_user=root
+
+
+
+[linux:children]
+ubuntu
+centos

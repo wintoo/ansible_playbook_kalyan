@@ -1,0 +1,10 @@
+
+- 
+
+  hosts: linux
+ 
+
+  tasks:
+  
+    - include_tasks: include_tasks.yml 
+      with_items: [ 1, 2, 3 ]

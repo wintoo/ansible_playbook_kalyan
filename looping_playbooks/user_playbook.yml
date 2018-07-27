@@ -1,0 +1,28 @@
+
+- 
+
+  hosts: linux 
+
+
+  tasks:
+    - name: Creating Users and Deleting users
+      user:
+        name: "{{ item }}"
+        state: absent
+      with_items:
+        - amar
+        - anthony
+        - azhar
+
+    - name: Deleting users and creating with comments.
+      user:
+        name: "{{ item.key }}" 
+        comment: "{{ item.value.full_name }}"
+        state: absent
+      with_dict:
+        james:
+          full_name: james sandiri
+        kiran:
+          full_name: kiran sandiri
+        venkat:
+          full_name: venkat sandiri          

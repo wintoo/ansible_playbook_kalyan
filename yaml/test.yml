@@ -1,0 +1,38 @@
+# Every YAML file should start with three dashes
+---
+
+aston martin:
+  year_founded: 1913
+  website: astonmartin.com
+  price: $10000
+  Founded_by:
+    Lionel Martin
+    Robert Bamford
+
+fiat:
+  year_founded: 1899
+  website: fiat.com
+  price: $20000
+  Founded_by:
+    - Giovanni Agnelli
+
+ford:
+  price: $30000
+  year_founded: 1903
+  website: ford.com
+  Founded_by:
+    - Henry Ford
+
+vauxhall:
+  price: $40000
+  year_founded: 1857
+  website: vauxhall.com 
+  Founded_by:
+    - Alexander Wilson
+
+
+
+
+ 
+# Every YAML file should end with three dots
+...

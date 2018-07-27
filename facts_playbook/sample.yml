@@ -1,0 +1,21 @@
+---
+
+-  
+
+  hosts: all
+  
+  tasks:
+    - name: Removing all files at /etc/ansible/facts.d/
+      file:
+        path: /etc/ansible/facts.d/getdate1.fact
+        state: absent
+
+    - name: Removing second file
+      file:
+        path: /etc/ansible/facts.d/getdate2.fact
+        state: absent
+
+
+
+
+...

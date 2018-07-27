@@ -1,0 +1,27 @@
+---
+
+control:
+  hosts:
+    ansible:
+      ansible_connection: local 
+
+centos:
+  hosts:
+    anode3:
+  vars:
+    ansible_user: root
+
+ubuntu:
+  hosts:
+    anode1:
+    anode2:
+  vars:
+    ansible_become: true
+    ansible_become_pass: password
+
+linux:
+  children:
+    ubuntu:
+    centos:
+   
+...
