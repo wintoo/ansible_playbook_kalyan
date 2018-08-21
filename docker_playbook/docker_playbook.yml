@@ -1,0 +1,52 @@
+---
+-
+ 
+  hosts: all
+  gather_facts: false
+
+  vars:
+
+  tasks:
+    - name: Installation of Docker
+      package:
+        name: docker.io
+        state: present
+      notify: Docker Installed   
+
+    - name: installation of python-pip 
+      package:
+        name: python-pip
+        state: present
+      notify: pip installed
+
+    - name: Installation of docker-py
+      pip:
+        name: docker-py
+        state: present
+
+    - name: creation of docker containers
+      docker_container:
+        name: mobile_app
+        image: nginx
+        state: stopped
+        ports:
+          - "8080:80"
+      tags: docker
+
+
+  handlers: 
+    - name: Docker Installed
+      package:
+        name: docker.io
+        state: present 
+    - name: pip installed
+      package:
+        name: python-pip
+        state: present
+
+
+  roles:
+
+
+
+...

@@ -1,0 +1,45 @@
+---
+# YAML documents begin with the document separator ---
+
+# The minus in YAML this indicates a list item.  The playbook contains a list
+# of plays, with each play being a dictionary
+-
+
+  # Target: where our play will run and options it will run with
+  hosts: linux
+
+  # Task: the list of tasks that will be executed within the playbook
+  
+  vars:
+    users: user{{ item.0 }}  
+
+  tasks:
+    - name: Creating Users ( wheel, operator, students )
+      block:
+        - group: 
+            name: "{{ item }}"
+            state: present
+          with_items: [ wheel, operator, students ]
+
+        - user:
+            name: "user{{ item.0 }}"
+            shell: /bin/csh
+            groups: 
+              - wheel
+              - operator
+              - students
+            password: login
+          with_sequence: start=1 end=20
+            
+        - file:
+            dest: /home/{{ users }}/empty
+            state: directory
+
+
+#    Each home directory should contain 6 folders: Lab1, Lab2, . . . , Lab6. In each
+# folder, there is a PDF file with the lab exercises (including this one) for each lab
+# you already did in this lecture (the folder Lab1 contains Lab1.pdf, folder Lab2 has
+# Lab2.pdf, etc).
+      
+
+...

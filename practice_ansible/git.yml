@@ -1,0 +1,14 @@
+---
+ # Example git checkout from Ansible Playbooks
+
+- hosts: linux
+
+
+  tasks:
+    - name: # Example git checkout from Ansible Playbooks
+      git:
+        repo: 'https://github.com/wintoo/index.html.git'
+        dest: /usr/share/nginx/html
+      tags: github-deployment 
+
+...

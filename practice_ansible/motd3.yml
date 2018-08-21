@@ -1,0 +1,29 @@
+---
+
+- 
+
+  hosts: linux
+  user: root  
+
+  vars_files:
+    - host_variables.yml     
+
+  tasks:
+    - name: Configure a MOTD (message of the day)
+      copy:
+        content: 
+          - "{{ host_hostname }}"
+          - "{{ host_ipaddress }}" 
+          - "{{ host_architecture }}"
+          - "{{ host_processor }}"
+          - "{{ host_memory }}"
+        dest: /etc/motd
+
+
+    - name: Creating a directory when linux OS is debian.
+      file:
+        path: /srv/www
+        state: directory
+      when: ansible_distribution_file_variety == "Debian" 
+...
+

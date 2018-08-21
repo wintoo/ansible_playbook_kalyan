@@ -1,0 +1,23 @@
+---
+
+- 
+  hosts: all
+
+  vars_files:
+    - machine_variables.yml
+
+
+  tasks:
+    - name: working with ansible variables.
+      debug:
+        msg:
+          #- "{{ external_named_list }}"  
+          - "{{ machine_variables }}"
+
+
+  handlers:
+
+  roles:
+
+
+...

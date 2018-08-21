@@ -1,0 +1,12 @@
+---
+
+machine_variables:
+  - "Node Hostname = {{ansible_hostname}}"
+  - "Node FQDN = {{ansible_fqdn}}"
+  - "Node Distribution = {{ansible_distribution}}"
+  - "Node Version = {{ansible_distribution_version}}"
+  - "Node IPaddress = {{ansible_enp0s8.ipv4.address}}"
+  - "DNS Name = {{ansible_dns}}"
+  - "Node Interfaces = {{ansible_interfaces}}"
+  - "Node Size = {{ansible_devices.sda.size}}"
+...

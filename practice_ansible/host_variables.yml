@@ -1,0 +1,18 @@
+---
+
+host_ipaddress:
+  - "IP address = {{ ansible_enp0s8.ipv4.address }}"
+
+host_hostname:
+  - "HostName = {{ ansible_hostname }}"
+
+host_architecture:
+  - "Host Architecture = {{ ansible_userspace_architecture }}"
+
+host_processor:
+  - "Host Processor = {{ ansible_processor }}, {{ ansible_processor_count }}"
+
+host_memory:
+  - "Host Memory = {{ ansible_memory_mb.real.free }}, {{ ansible_memory_mb.real.total }}"
+
+...
